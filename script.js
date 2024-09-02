@@ -23,8 +23,6 @@ function Book(title, author, pages, read) {
     }
 }
 
-
-
 // functions and scripts for interactions with library
 
 // adding book to libraray array
@@ -36,28 +34,6 @@ function addBookToLibrary(newBook) {
 showButton.addEventListener('click', () => {
     dialog.showModal();
 });
-
-// Adding new book to table by adding another row
-function addBookToTable(book) {
-    const newRow = document.createElement("tr");
-    const tdTitle = document.createElement("td");
-    const tdAuthor = document.createElement("td");
-    const tdPages = document.createElement("td");
-    const tdRead = document.createElement("td");
-
-    tdTitle.textContent = book.title;
-    tdAuthor.textContent = book.author;
-    tdPages.textContent = book.pages;
-    tdRead.textContent = book.read;
-
-    newRow.appendChild(tdTitle);
-    newRow.appendChild(tdAuthor);
-    newRow.appendChild(tdPages);
-    newRow.appendChild(tdRead);
-    
-    const table = document.querySelector(".target table");
-    table.appendChild(newRow);
-}
 
 cancelButton.addEventListener('click', function () {
     dialog.close();
@@ -78,8 +54,26 @@ bookForm.addEventListener('submit', (event) => {
     // add book to library
     addBookToLibrary(newBook);
 
-    // add book to table; Add new row in table
-    addBookToTable(newBook);
+    // Create a new card element
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    // Set the card's inner HTML
+    card.innerHTML = `
+        <h1 class="title">${title}</h1>
+        <div class="author">by ${author}</div>
+        <div class="pages">Pages: ${pages}</div>
+        <div class="card-buttons">
+        <label class="switch">
+            <input type="checkbox" ${read ? 'checked' : ''}>
+            <span class="slider round"></span>
+        </label>
+        <button type="button" onclick="this.parentElement.remove()">Delete</button>
+        </div>
+    `;
+
+    // Append the card to the container
+    document.querySelector('.container').appendChild(card);
 
     // close dialog after adding book
     dialog.close();
