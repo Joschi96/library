@@ -1,0 +1,63 @@
+/* Normalize and reset */
+@import "../../node_modules/modern-normalize/modern-normalize.css";
+
+:root{
+    line-height: 1.5;
+    --main-color: #1e1b4b;
+    --sec-color:#eef2ff;
+    --trd-color:#d4d4e2a6;
+    --text-main: #eef2ff;
+    --text-sec:#1b1b1b;
+    --text-trd:#383838e7;
+    font-family: sans-serif;
+}
+html{
+    height: 100%;
+}
+h1, h2, h3, h4, h5, figure, p, ol, ul {
+    margin: 0;
+}
+ol[role="list"], ul[role="list"] {
+    list-style: none;
+    padding-inline: 0;
+}
+h1, h2, h3, h4, h5 {
+    font-size: inherit;
+    font-weight: inherit;
+} 
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+.highlight{
+    font-style: italic;
+}
+
+/* END Normalize and reset */
+
+body{
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header{
+    min-height: 150px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+footer{
+    min-height: 50px;
+    background-color: #1e1b4b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="left">
+            <h1>My book library</h1>
+            <p>This is a project for <a href="">The Odin Project</a> in which I have to make a library
+                using <span class="highlight">Object Constructors</span>. <br>
+                You can also view the <a href="">Github repository</a> of this project.
+            </p>
+        </div>
+        <button type="button" class="show">+</button>
+        <dialog id="bookDialog">
+            <form id="bookForm">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" required>
+    
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author">
+    
+                <label for="pages">Pages:</label>
+                <input type="text" name="pages" id="pages">
+    
+                <label for="read">Read:</label>
+                <select name="read" id="read" required>
+                    <option value="">Choose...</option>
+                    <option>yes</option>
+                    <option>no</option>
+                </select>
+    
+                <div>
+                    <button type="button" id="cancelButton">Cancel</button>
+                    <button type="submit">Add</button>
+                </div>
+            </form>
+        </dialog>
+    </header>
+
+    <div class="container">
+        
+    </div>
+    <footer>
+        <a href="">Joschi96</a> | <a href="">Source Code</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
