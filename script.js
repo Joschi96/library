@@ -61,8 +61,10 @@ bookForm.addEventListener('submit', (event) => {
     // Set the card's inner HTML
     card.innerHTML = `
         <h1 class="title">${title}</h1>
-        <div class="author">by ${author}</div>
-        <div class="pages">Pages: ${pages}</div>
+        <div class="card-flex">
+            <div class="author">by *author*</div>
+            <div class="pages">Pages: *pages*</div>
+        </div>
         <div class="card-buttons">
         <label class="switch">
             <input type="checkbox" ${read ? 'checked' : ''}>
