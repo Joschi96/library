@@ -190,7 +190,9 @@ footer a:first-child{
     display: grid;
     gap: 16px; /* Space between the cards */
     padding: 2.5rem 1.5rem; /* Space around the grid */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 350px));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
+    grid-template-rows: repeat(auto-fill, 150px);
+    overflow:auto;
 }
 .card {
     background-color: var(--main-color-opa);
@@ -220,12 +222,17 @@ footer a:first-child{
 }
 .pages{
     grid-column: 3;
+    justify-self: end;
+}
+.author{
+    justify-self: start;
 }
 .card-flex{
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: auto;
     align-items: center;
-    gap: 1rem;
+    width: 100%;
+    justify-content: space-around;
 }
 .card-buttons{
     display: grid;
