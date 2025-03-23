@@ -103,23 +103,73 @@ const dialog = document.querySelector("dialog");
 const showButton = document.querySelector(".show");
 const cancelButton = document.getElementById('cancelButton');
 const bookForm = document.getElementById('bookForm');
+const title = document.getElementById('title').value;
 
 showButton.addEventListener('click', () => dialog.showModal());
 cancelButton.addEventListener('click', () => dialog.close());
+
 
 // Handle form submission to add a new book
 bookForm.addEventListener('submit', (event) => {
     event.preventDefault(); // Prevent default form submission
 
     // Retrieve values from the form
-    const title = document.getElementById('title').value;
+    const titleInput = document.getElementById('title');
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
-    const read = document.getElementById('read').value === 'yes';
+    const readSelect = document.getElementById('read');
+    const read = readSelect.value === 'yes';
 
-    // Create a new book and add it to the library
-    const newBook = new Book(title, author, pages, read);
-    library.addBook(newBook);
+    const titleError = document.querySelector("#title + span.error");
+    const readError = document.querySelector("#read + span.error");
 
-    dialog.close(); // Close the dialog after adding the book
+    let isValid = true;
+
+    // Validate title input
+    if (!titleInput.value.trim()) {
+        titleError.textContent = 'Title is required.';
+        titleError.className = "error active";
+        isValid = false;
+    } else {
+        titleError.textContent = '';
+        titleError.className = "error";
+    }
+
+    // Validate read select
+    if (!readSelect.value) {
+        readError.textContent = 'Please select a read status.';
+        readError.className = "error active";
+        isValid = false;
+    } else {
+        readError.textContent = '';
+        readError.className = "error";
+    }
+
+    // If the form is valid, create a new book and add it to the library
+    if (isValid) {
+        const newBook = new Book(titleInput.value.trim(), author, pages, read);
+        library.addBook(newBook);
+
+        dialog.close(); // Close the dialog after adding the book
+    }
+});
+
+// Add input event listener to clear the title error dynamically
+document.getElementById('title').addEventListener('input', () => {
+    const titleInput = document.getElementById('title'); // Retrieve the element again
+    const titleError = document.querySelector("#title + span.error");
+    if (titleInput.value.trim()) {
+        titleError.textContent = '';
+        titleError.className = "error";
+    }
+});
+
+// Add change event listener to clear the read error dynamically
+document.getElementById('read').addEventListener('change', () => {
+    const readSelect = document.getElementById('read'); // Retrieve the element again
+    const readError = document.querySelector("#read + span.error");
+    if (readSelect.value) {
+        readError.textContent = '';
+        readError.className = "error";
+    }
 });

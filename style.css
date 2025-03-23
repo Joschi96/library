@@ -60,6 +60,43 @@ header h1{
     width: 60px;
     height: 26px;
 }
+
+/* invalid fields */
+input:invalid {
+    border-color: #900;
+    background-color: #fdd;
+  }
+
+input:focus:invalid {
+  outline: none;
+}
+
+/* error message styles */
+.error {
+    width: 100%;
+    padding: 0;
+  
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+  
+    box-sizing: border-box;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }
+  
+.input[type="text"]{
+    border: none;
+    border-radius: 18px;
+    padding: 12px 25px;
+    width: 100%;
+    background-color: var(--main-color-opa);
+    color: var(--text-main);
+    box-shadow: 0px 1px 3px var(--shadow);
+}
   
 /* Hide default HTML checkbox */
 .switch input {
